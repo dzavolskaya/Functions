@@ -1,5 +1,4 @@
-// eslint-disable-line
-import { l, cons } from 'hexlet-pairs';
+import { l, cons, head, tail } from 'hexlet-pairs-data'; // eslint-disable-line
 
 //recursive function to check if an element is in the list
 export const has = (list, x) => {
