@@ -19,11 +19,11 @@ const wordsCounts = (words, stopWords) => words
 const difference = (set1, set2) => 
     new Set(Array.from(set1).filter(element => !set2.has(element)));
 
-  // set => no 'filter' etc. but 'has'
-  // array => yes 'filter' and 'includes'
+// set => no 'filter' etc. but 'has'
+// array => yes 'filter' and 'includes'
 
-  // ====================================================//
-  // function to destructure an object 
+// ====================================================//
+// function to destructure an object 
 const getCountperData = (data) => {
     const iter = (items, acc) => {
         if (items.length === 0) {
