@@ -1,5 +1,7 @@
-### Javascript exercises
+## Javascript exercises
 
-## tail and classic recursion
+### tail and classic recursion
 
-## map, filter, reduce
+### map, filter, reduce
+
+### trees

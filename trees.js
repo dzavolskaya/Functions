@@ -26,15 +26,15 @@ const tree = {
     type: 'directory',
   };
 
-  const downcaseFileNames = (tree) => {
-    if (tree.type === 'file') {
-      return { ...tree, name: tree.name.toLowerCase() };
-    }
-    if (!tree.children) {
-      return { ...tree };
-    }
-    return { ...tree, children: tree.children.map(downcaseFileNames)};
-  };
+const downcaseFileNames = (tree) => {
+  if (tree.type === 'file') {
+    return { ...tree, name: tree.name.toLowerCase() };
+  }
+  if (!tree.children) {
+    return { ...tree };
+  }
+  return { ...tree, children: tree.children.map(downcaseFileNames)};
+};
 
 const mapTransformer = (f, tree) => {
   const newResult = f(tree);
