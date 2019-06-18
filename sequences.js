@@ -2,10 +2,10 @@ import { l, cons, head, tail } from 'hexlet-pairs-data'; // eslint-disable-line
 
 //recursive function to check if an element is in the list
 export const has = (list, x) => {
-  if (list === null)) {
+  if (list === null) {
     return false;
   }
-  if (list === null) === x) {
+  if (list === x) {
       return true;
   }
     return has(tail(list), x);
@@ -15,7 +15,7 @@ export const has = (list, x) => {
 export const reverse = list => {
   if (list === null ) return list;
   const iter = (list, acc) => {
-    if (list === null)){
+    if (list === null) {
      return acc;
     }
     return iter(tail(list), cons(head(list), acc));
