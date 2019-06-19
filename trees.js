@@ -19,7 +19,7 @@ const tree = {
         name: 'eTc',
         type: 'directory',
       },
-      { meta: {}, name: 'hOsts', type: 'file' },
+      { meta: {}, name: 'cohOsts', type: 'file' },
     ],
     meta: {},
     name: '/',
@@ -43,7 +43,6 @@ const mapTransformer = (f, tree) => {
   }
   return { ...newResult, children: tree.children.map(n => mapTransformer(f, n)) };
 };
-
 // console.log(mapTransformer(n => ({ ...n, name: n.name.toUpperCase() }), tree));
 
 const filterTransformer = (f, tree) => {
@@ -53,7 +52,6 @@ const filterTransformer = (f, tree) => {
   }
   return { ...tree, children: tree.children.map(n => filterTransformer(f, n)).filter(v => v) };
 };
-
 // console.log(filterTransformer(n => n.type === 'directory', tree));
 
 
@@ -64,5 +62,18 @@ const reduceTransformer = (f, tree, acc) => {
   }
   return tree.children.reduce((iAcc, n) => reduceTransformer(f, n, iAcc), newAcc);
 };
+// console.log(reduceTransformer((acc, n) => acc + 1, tree, 0));
 
-// console.log(rreduceTransformer((acc, n) => acc + 1, tree, 0));
+
+// import path from 'path'; (path module has to be installed)
+const findFilesByName = (tree, str) => {
+  const iter = (n, currPath, acc) => {
+    const newPath = path.join(currPath, n.name);
+    if (n.type === 'file') {
+      return (n.name.includes(str)) ? [...acc, newPath] : acc;
+    }
+    return n.children.reduce((cAcc, nn) => iter(nn, newPath, cAcc), acc);
+  };
+  return iter(tree, '', []);
+};
+//console.log(findFilesByName(tree, 'co'));
