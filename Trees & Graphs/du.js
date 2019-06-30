@@ -33,7 +33,7 @@ const reduce = (f, tree, acc) => {
     if (!tree.children) {
       return newAcc;
     }
-    return tree.children.reduce((iAcc, n) => reduceTransformer(f, n, iAcc), newAcc);
+    return tree.children.reduce((iAcc, n) => reduce(f, n, iAcc), newAcc);
   };
 
 //function to simulate Linux command 'du'
