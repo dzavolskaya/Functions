@@ -1,4 +1,4 @@
-// FLUENT INTERFACE
+// FLUENT INTERFACE pattern
 
 const cars = [
     { brand: 'bmw', model: 'm5', year: 2014 },
